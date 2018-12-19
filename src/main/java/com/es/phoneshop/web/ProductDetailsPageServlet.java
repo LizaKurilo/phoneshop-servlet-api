@@ -6,6 +6,8 @@ import com.es.phoneshop.model.cart.CartServiceImpl;
 import com.es.phoneshop.model.cart.NotEnoughStockException;
 import com.es.phoneshop.model.comparisonServise.ComparisonService;
 import com.es.phoneshop.model.comparisonServise.ComparisonServiceImpl;
+import com.es.phoneshop.model.popularProducts.PopularProductsService;
+import com.es.phoneshop.model.popularProducts.PopularProductsServiceImpl;
 import com.es.phoneshop.model.product.ArrayListProductDao;
 import com.es.phoneshop.model.product.Product;
 import com.es.phoneshop.model.product.ProductDao;
@@ -23,6 +25,7 @@ public class ProductDetailsPageServlet extends HttpServlet {
     private ProductDao productDao;
     private CartService cartService;
     private ViewedProductsService viewedProductsService;
+    private PopularProductsService popularProductsService;
 
     private ComparisonService comparisonService;
 
@@ -33,6 +36,8 @@ public class ProductDetailsPageServlet extends HttpServlet {
         productDao = ArrayListProductDao.getInstance();
         cartService = CartServiceImpl.getInstance();
         viewedProductsService = ViwedProductsImpl.getInstance();
+        popularProductsService = PopularProductsServiceImpl.getInstance();
+
 
         comparisonService = ComparisonServiceImpl.getInstance();
     }
@@ -44,8 +49,10 @@ public class ProductDetailsPageServlet extends HttpServlet {
             request.setAttribute("viewed", viewedProductsService.getViewedProducts(request.getSession()));
             request.setAttribute("cart", cartService.getCart(request.getSession()));
             request.setAttribute("product", product);
+            request.setAttribute("popular", popularProductsService.getPopularProducts());
             request.getRequestDispatcher("/WEB-INF/pages/product.jsp").forward(request, response);
             viewedProductsService.addToViewedProducts(viewedProductsService.getViewedProducts(request.getSession()), product);
+            popularProductsService.addToPopularProducts(popularProductsService.getPopularProducts(), product);
         }
         catch (NoSuchElementException e ) {
            request.getRequestDispatcher("/WEB-INF/pages/404.jsp").forward(request, response);

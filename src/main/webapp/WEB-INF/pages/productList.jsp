@@ -5,23 +5,6 @@
 
 <jsp:useBean id="products" type="java.util.ArrayList" scope="request"/>
 <tags:master pageTitle="${product.description}" pageClass="product-detail">
-
-<%--<html>
-  <head>
-    <title>Product List</title>
-    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/styles/main.css">
-  </head>
-  <body class="product-list">
-    <header>
-       <c:url var="contextLinkProducts" context="${pageContext.servletContext.contextPath}" value="/products" />
-      <c:url var="contextLinkCart" context="${pageContext.servletContext.contextPath}" value="/cart" />
-      <a href="${contextLinkProducts}">
-       &lt;%&ndash; <img src="${contextLink}/images/logo.svg"/>&ndash;%&gt;
-        PhoneShop
-      </a>
-
-    </header>--%>
   <c:url var="contextLinkProducts" context="${pageContext.servletContext.contextPath}" value="/products" />
   <c:url var="contextLinkCart" context="${pageContext.servletContext.contextPath}" value="/cart" />
     <main>

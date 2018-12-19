@@ -90,6 +90,17 @@
     <servlet-class> com.es.phoneshop.web.ComparePageServlet</servlet-class>
   </servlet>
 
+  <servlet-mapping>
+    <servlet-name>quickOrder</servlet-name>
+    <url-pattern>/quickorder</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>quickOrder</servlet-name>
+    <servlet-class> com.es.phoneshop.web.QuickOrderServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>minacart</servlet-name>

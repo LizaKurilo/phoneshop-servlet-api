@@ -17,9 +17,13 @@
 <main>
     <c:url var="contextLinkCart" context="${pageContext.servletContext.contextPath}" value="/cart" />
     <c:url var="contextLinkCompare" context="${pageContext.servletContext.contextPath}" value="/compare" />
+    <c:url var="contextLinkQuickOrder" context="${pageContext.servletContext.contextPath}" value="/quickorder" />
     <a  class="total-price" href="${contextLinkCart}" >Cart : ${cart.totalPrice}</a>
     <br>
     <a  class="total-price" href="${contextLinkCompare}" >Go to compare page </a>
+
+    <br>
+    <a  class="total-price" href="${contextLinkQuickOrder}" >Go to quick order </a>
     <jsp:doBody/>
 </main>
 <div>

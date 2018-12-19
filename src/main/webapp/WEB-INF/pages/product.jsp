@@ -10,6 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 
+
 <jsp:useBean id="product" type="com.es.phoneshop.model.product.Product" scope="request"/>
 
 <tags:master pageTitle="${product.description}" pageClass="product-detail">
@@ -17,9 +18,6 @@
     <c:url var="contextLinkProducts" context="${pageContext.servletContext.contextPath}" value="/products" />
     <c:url var="contextLinkMinicart" context="${pageContext.servletContext.contextPath}" value="/minicart" />
     <main>
-    <%--<form method="get" action="${contextLinkCart}">
-        <button> Cart </button>
-    </form>--%>
 
         <iframe name="myIframe" src=${contextLinkMinicart} width="400" height="250" align="right" <%--sandbox="allow-same-origin"--%>>
             Нажмите
@@ -66,6 +64,22 @@
             </c:forEach>
         </tr>
     </table>
+     <%--   <tags:tableTag >
+
+    </tags:tableTag>--%>
+        Popular products:
+        </p>
+        <table border="1">
+            <tr>
+                <c:forEach var="popular" items="${popular}">
+                    <td>
+                        <img class="product-title" src="https://raw.githubusercontent.com/andrewosipenko/phoneshop-ex..${popular.imageUrl}">
+                        <p><a href="${contextLinkProducts}/${popular.id}">${popular.description}</a></p>
+                        <p>Price: <fmt:formatNumber value="${popular.price}" type="currency" currencySymbol="${popular.currency.symbol}"></fmt:formatNumber> </p>
+                    </td>
+                </c:forEach>
+            </tr>
+        </table>
     </main>
 </tags:master>
 
