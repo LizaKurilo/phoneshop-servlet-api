@@ -19,6 +19,7 @@ public class CartFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         servletRequest.setAttribute("cart", cartService.getCart(((HttpServletRequest) servletRequest).getSession()));
+        //servletRequest.setAttribute("comparison", cartService.getCart(((HttpServletRequest) servletRequest).getSession()));
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

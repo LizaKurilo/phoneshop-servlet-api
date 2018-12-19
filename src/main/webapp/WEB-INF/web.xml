@@ -79,6 +79,30 @@
     <servlet-class> com.es.phoneshop.web.OrderOverviewPageServlet</servlet-class>
   </servlet>
 
+  <servlet-mapping>
+    <servlet-name>compare</servlet-name>
+    <url-pattern>/compare</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>compare</servlet-name>
+    <servlet-class> com.es.phoneshop.web.ComparePageServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>minacart</servlet-name>
+    <url-pattern>/minicart</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>minacart</servlet-name>
+    <servlet-class> com.es.phoneshop.web.MinicartPageServlet</servlet-class>
+  </servlet>
+
+
 
   <filter>
     <filter-name>cartFilter</filter-name>

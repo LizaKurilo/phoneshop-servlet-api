@@ -15,7 +15,7 @@
 
     <c:url var="contextLinkCart" context="${pageContext.servletContext.contextPath}" value="/cart" />
     <c:url var="contextLinkCheckout" context="${pageContext.servletContext.contextPath}" value="/checkout" />
-    <span class="total-price"> Total Price: ${cart.totalPrice}</span>
+    <%--<span> Total Price: ${cart.totalPrice}</span>--%>
 
     <c:if test="${not empty param.message}">
         <p class="success">${param.message}</p>

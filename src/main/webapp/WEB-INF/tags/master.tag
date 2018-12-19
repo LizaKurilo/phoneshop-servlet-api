@@ -10,11 +10,16 @@
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/styles/main.css">
 </head>
 <body class=${pageClass}>
-<div>
+<div >
     <jsp:include page="/WEB-INF/pages/header.jsp"/>
 </div>
 
 <main>
+    <c:url var="contextLinkCart" context="${pageContext.servletContext.contextPath}" value="/cart" />
+    <c:url var="contextLinkCompare" context="${pageContext.servletContext.contextPath}" value="/compare" />
+    <a  class="total-price" href="${contextLinkCart}" >Cart : ${cart.totalPrice}</a>
+    <br>
+    <a  class="total-price" href="${contextLinkCompare}" >Go to compare page </a>
     <jsp:doBody/>
 </main>
 <div>

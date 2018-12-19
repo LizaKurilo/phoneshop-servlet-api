@@ -15,10 +15,15 @@
 <tags:master pageTitle="${product.description}" pageClass="product-detail">
     <c:url var="contextLinkCart" context="${pageContext.servletContext.contextPath}" value="/cart" />
     <c:url var="contextLinkProducts" context="${pageContext.servletContext.contextPath}" value="/products" />
+    <c:url var="contextLinkMinicart" context="${pageContext.servletContext.contextPath}" value="/minicart" />
     <main>
-    <form method="get" action="${contextLinkCart}">
+    <%--<form method="get" action="${contextLinkCart}">
         <button> Cart </button>
-    </form>
+    </form>--%>
+
+        <iframe name="myIframe" src=${contextLinkMinicart} width="400" height="250" align="right" <%--sandbox="allow-same-origin"--%>>
+            Нажмите
+            <a href=${contextLinkCart} >сюда</a>, чтобы увидеть документ в новом окне. </iframe>
 
     <c:if test="${not empty param.message}">
         <p class="success">${param.message}</p>
@@ -35,11 +40,15 @@
                 <p>Price:  <fmt:formatNumber value="${product.price}" type="currency" currencySymbol="${product.currency.symbol}"/> </p>
                 <form method="post" action="${contextLinkProducts}/${product.id}">
                     Quantity: <input name="quantity" value="${not empty param.quantity ? param.quantity : 1}" class="number">
-                    <button>Add to cart</button>
+                    <button type="submit" name="action1" value="addToCart">Add to cart</button>
                     <c:if test="${not empty quantityError}">
                         <p class="error">${quantityError}</p>
                     </c:if>
+                    <br>
+                    <br>
+                    <button type="submit" name="action2" value="addToComparison">Add to comparison</button>
                 </form>
+
             </td>
         </tr>
     </table>

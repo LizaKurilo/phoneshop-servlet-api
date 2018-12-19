@@ -16,7 +16,4 @@
         <img src="${pageContext.servletContext.contextPath}/images/logo.svg"/>
         PhoneShop
     </a>
-    <%--<div >
-        <a href="${contextLinkCart}" >Cart : ${cart.totalPrice}</a>
-    </div>--%>
 </header>

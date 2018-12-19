@@ -7,7 +7,6 @@ import java.util.List;
 public interface ViewedProductsService {
 
     List<Product> getViewedProducts(HttpSession session);
-
     void addToViewedProducts(List<Product> list, Product product);
 
 }

@@ -25,12 +25,16 @@
   <c:url var="contextLinkProducts" context="${pageContext.servletContext.contextPath}" value="/products" />
   <c:url var="contextLinkCart" context="${pageContext.servletContext.contextPath}" value="/cart" />
     <main>
+
+      <iframe name="myIframe" src=${contextLinkCart} width="400" height="250" align="right" <%--sandbox="allow-same-origin"--%>>
+        Нажмите
+        <a href=${contextLinkCart} >сюда</a>, чтобы увидеть документ в новом окне. </iframe>
+
       <p>
         Welcome to Expert-Soft training!
       </p>
       <p class="total-price">
-      <a href="${contextLinkCart}" >Total Price : ${cart.totalPrice}</a>
-      </p>
+
 
         <form>
           <input type="hidden" name="sort" value="${param.sort}">
@@ -42,6 +46,8 @@
         <input type="hidden" name="query" value="${param.query}">
         <button type="submit">Skip Sort Parametrs</button>
       </form>
+
+
       <table>
         <thead>
           <tr>
@@ -63,6 +69,7 @@
             </td>
             <td>
               <a href="${contextLinkProducts}/${product.id}">${product.description}</a>
+
             </td>
             <td class="price">
               <fmt:formatNumber value="${product.price}" type="currency" currencySymbol="${product.currency.symbol}"/>

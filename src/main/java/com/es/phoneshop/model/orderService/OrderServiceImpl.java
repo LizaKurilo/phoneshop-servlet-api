@@ -31,9 +31,12 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order placeOrder(Cart cart, String name, String deliveryAddress, String phone) {
         Order order = new Order();
-        order.setName(name);
-        order.setDeliveryAddress(deliveryAddress);
-        order.setPhone(phone);
+        if(name != "" && deliveryAddress != "" && phone != "") {
+            order.setName(name);
+            order.setDeliveryAddress(deliveryAddress);
+            order.setPhone(phone);
+        }
+        else throw new NullPointerException();
         order.getCartItems().addAll(cart.getCartItems());
         ArrayListOrderDao.getInstance().save(order);
         return order;
